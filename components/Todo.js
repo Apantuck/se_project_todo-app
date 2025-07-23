@@ -52,14 +52,6 @@ class Todo {
       })}`;
     }
   }
-
-  //   _openModal = (modal) => {
-  //     modal.classList.add("popup_visible");
-  //   };
-
-  //   _closeModal = (modal) => {
-  //     modal.classList.remove("popup_visible");
-  //   };
 }
 
 export default Todo;
