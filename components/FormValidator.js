@@ -3,11 +3,9 @@ class FormValidator {
     this._config = config;
     this._formElement = formElement;
     this._inputList = Array.from(
-      this._formElement.querySelectorAll(config.inputSelector)
+      formElement.querySelectorAll(config.inputSelector)
     );
-    this._submitButton = this._formElement.querySelector(
-      config.submitButtonSelector
-    );
+    this._submitButton = formElement.querySelector(config.submitButtonSelector);
   }
 
   enableValidation() {
@@ -17,21 +15,9 @@ class FormValidator {
     this._setEventListeners();
   }
 
-  disableSubmitButton() {
-    this._disableSubmitButton();
-  }
-
   resetValidation() {
     this._formElement.reset();
     this._disableSubmitButton();
-
-    // Clear all input errors
-    this._inputList.forEach((inputElement) => {
-      const errorElement = this._formElement.querySelector(
-        `.${inputElement.id}-error`
-      );
-      this._hideInputError(inputElement, errorElement);
-    });
   }
 
   _setEventListeners() {
