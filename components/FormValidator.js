@@ -11,6 +11,7 @@ class FormValidator {
   enableValidation() {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      this.resetValidation();
     });
     this._setEventListeners();
   }
@@ -57,7 +58,7 @@ class FormValidator {
 
   _checkInputValidity(inputElement) {
     const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
+      `#${inputElement.id}-error`
     );
 
     if (!inputElement.validity.valid) {
