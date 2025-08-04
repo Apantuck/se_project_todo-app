@@ -1,4 +1,4 @@
-class Todo {
+export default class Todo {
   constructor(data, selector) {
     this._data = data;
     this._selector = selector;
@@ -54,5 +54,3 @@ class Todo {
     }
   }
 }
-
-export default Todo;
