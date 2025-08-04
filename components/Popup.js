@@ -22,15 +22,15 @@ export default class Popup {
     });
   }
 
-  _handleEscapeClose(event) {
+  _handleEscapeClose = (event) => {
     if (event.key === "Escape") {
       this.close();
     }
-  }
+  };
 
-  _handleOverlayClick(event) {
+  _handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       this.close();
     }
-  }
+  };
 }
