@@ -1,7 +1,9 @@
 export default class Todo {
-  constructor(data, selector) {
+  constructor(data, selector, checkHandler, deleteHandler) {
     this._data = data;
     this._selector = selector;
+    this._checkHandler = checkHandler;
+    this._deleteHandler = deleteHandler;
   }
 
   getView() {
@@ -23,12 +25,14 @@ export default class Todo {
   _setEventListeners() {
     this._todoCheckboxEl.addEventListener("change", (evt) => {
       this._data.completed = !this._data.completed;
+      this._checkHandler(this._data.completed);
       this._todoElement.classList.toggle("todo_completed");
     });
 
     this._todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
       this._todoElement = null;
+      this._deleteHandler(this._data.completed);
     });
   }
 
